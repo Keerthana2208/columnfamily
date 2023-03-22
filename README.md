@@ -2,32 +2,31 @@
 
 Cassandra is a free and open-source, distributed, wide-column store, NoSQL database management system designed to handle large amounts of data across many commodity servers, providing high availability with no single point of failure.
 
-To design tables for a column family database for online shopping, we first need to identify the entities involved in the system. A basic schema could include the following entities:
+First, let's create a keyspace (database) for our online shopping platform:
 
-* Customers
-* Products
-
-We can then create column families for each entity, with columns for specific attributes. Here is an example schema:
-
-Customers Column Family
-------------------------
-
-                Column Family Name	    Column Name Data Type
-                customers customer_id int PRIMARY KEY
-                customers name text
-                customers email text
-                customers address text
-                customers phone_number text
-
-Products Column Family
------------------------
-
-                Column Family Name    Column Name Data Type
-                products product_id int PRIMARY KEY
-                products name text
-                products price decimal
-
+              CREATE KEYSPACE shopping_platform WITH replication = {'class': 'SimpleStrategy', 'replication_factor': 1};
+             
 Now, to perform insert, delete, update, and search operations for customer data analysis, we can use the following examples:
+                
+Syntax for creating table
+-------------------------
+Now, let's create a table for customer data:
+
+                CREATE TABLE customers (
+                customer_id uuid,
+                name text,
+                email text,
+                phone_number text,
+                address text,
+                PRIMARY KEY (customer_id)
+                );
+
+Syntax for inserting table
+--------------------------
+To insert a new customer record into the table, we can use the following query:
+
+               INSERT INTO customers (customer_id, name, email, phone_number, address)
+               VALUES (uuid(), 'John Doe','john@gmail.com','9532456654','123 main st');
 
 Insert Operation
 ----------------
