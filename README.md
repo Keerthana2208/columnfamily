@@ -52,3 +52,8 @@ Search Operation
 To search for all orders placed by a customer:
 
           SELECT * FROM orders WHERE customer_id = '1';
+          
+Conclusion
+----------
+            This readme file explain about how to create tables using cassendra query language and perform opreations like insert,delete,update and search.
+
