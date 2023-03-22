@@ -13,7 +13,7 @@ Customers Column Family
 ------------------------
 
                 Column Family Name	    Column Name Data Type
-                customers customer_id text
+                customers customer_id int PRIMARY KEY
                 customers name text
                 customers email text
                 customers address text
@@ -23,7 +23,7 @@ Products Column Family
 -----------------------
 
                 Column Family Name    Column Name Data Type
-                products product_id text
+                products product_id int PRIMARY KEY
                 products name text
                 products price decimal
 
